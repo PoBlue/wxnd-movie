@@ -32,6 +32,7 @@ router.get('/message', controllers.message.get)
 // POST 用来处理微信转发过来的客服消息
 router.post('/message', controllers.message.post)
 
+// GET 用来响应 URL： /movies 
 router.get('/movies', controllers.movies.list)
 
 module.exports = router

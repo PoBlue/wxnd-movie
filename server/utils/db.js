@@ -4,7 +4,7 @@ const config = require('../config').mysql
 var pool = null
 
 /**
- * 初始化连接池
+ * 初始化连接池。
  */
 function initMysqlPool() {
   pool = mysql.createPool({
