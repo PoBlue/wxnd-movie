@@ -1,4 +1,7 @@
 <!--index.wxml-->
-<view class="container">
-  <text>hello, world!!</text>
+<view class="container">  
+  <view class='card'>
+    <view class="card-background"></view>
+    <view class='card-surface'></view>
+  </view>  
 </view>
