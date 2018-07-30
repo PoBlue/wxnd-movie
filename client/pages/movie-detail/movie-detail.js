@@ -12,7 +12,7 @@ Page({
    */
   onLoad: function (options) {
     const movie = options;
-
+    console.log(movie)
     this.setData({
       movie
     })

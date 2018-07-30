@@ -1,7 +1,10 @@
 <!--index.wxml-->
 <view class="container">  
   <view class='card'>
-    <view class="card-background"></view>
-    <view class='card-surface'></view>
+    <view class="card-background">card1</view>
+    <view class='card-image'>
+      <image mode='aspectFill' class='movie-image' src="{{ movie.image }}"></image>
+    </view>
+    <view class='card-description'>card3</view>
   </view>  
 </view>
