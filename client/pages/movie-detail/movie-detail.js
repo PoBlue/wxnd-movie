@@ -1,3 +1,5 @@
+const utils = require('../../utils/util.js');
+
 Page({
 
   /**
@@ -16,7 +18,6 @@ Page({
     this.setData({
       movie
     })
-    
   },
 
   /**
