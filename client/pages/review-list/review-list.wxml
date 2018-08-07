@@ -1,0 +1,23 @@
+<!--pages/review-list.wxml-->
+<view class="container">
+  <view class='placeholder'></view>
+  <view class="list-item" wx:for="{{ reviewList }}" wx:key="{{ movieId }}">
+
+    <view class="person-info">
+      <image mode='aspectFill' class='movie-image' src="{{ item.imageUrl }}"></image>
+      <text class='name'>{{ item.name }}</text>
+    </view>
+
+    <view class='review' wx:if="{{ item.dataType == '文字'}}"> 
+      <text> {{ item.text }} </text>
+    </view>
+
+    <view class='voice' wx:if="{{ item.dataType == '语音' }}"> 
+      <text class='fa fa-play-circle'/>
+      <text class='voice-length'>{{ item.voice }}</text>
+    </view>
+  </view>
+
+  <view class='back-btn'>回到首页</view>
+</view>
+
