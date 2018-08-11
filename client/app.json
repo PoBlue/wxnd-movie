@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/review-list/review-list",
     "pages/index/index",
-    "pages/movie-detail/movie-detail"
+    "pages/movie-detail/movie-detail",
+    "pages/review-list/review-list"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
