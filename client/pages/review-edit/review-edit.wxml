@@ -1,0 +1,17 @@
+<!-- pages/review-edit/review-edit.wxml -->
+<view class="container">
+  <movie-card movie="{{movie}}">
+    <view class="card-content">
+      <input class="input" maxlength="10" placeholder="最大输入长度10" />
+      <view class="record">
+        <view class="buttons">
+          <view class='view-button'>
+            <text class='fa fa-microphone' />
+            <text>录音</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </movie-card>
+  <view class='back-btn'>回到首页</view>
+</view>

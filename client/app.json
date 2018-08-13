@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/movie-detail/movie-detail",
+    "pages/review-edit/review-edit",
     "pages/review-detail/review-detail",
+    "pages/movie-detail/movie-detail",
     "pages/index/index",
     "pages/review-list/review-list"
   ],
