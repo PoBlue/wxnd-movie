@@ -3,10 +3,7 @@
   <view class='placeholder'></view>
   <view class="list-item" wx:for="{{ reviewList }}" wx:key="{{ movieId }}">
 
-    <view class="person-info">
-      <image mode='aspectFill' class='movie-image' src="{{ item.imageUrl }}"></image>
-      <text class='name'>{{ item.name }}</text>
-    </view>
+    <person-info name="{{ item.name }}" imageUrl="{{ item.imageUrl }}"></person-info>
 
     <view class='review' wx:if="{{ item.dataType == '文字'}}"> 
       <text> {{ item.text }} </text>
