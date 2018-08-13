@@ -9,10 +9,9 @@
       <text> {{ item.text }} </text>
     </view>
 
-    <view class='voice' wx:if="{{ item.dataType == '语音' }}"> 
+    <voice-block class='voice' voice="{{ item.voice }}" wx:if="{{ item.dataType == '语音' }}"> 
       <text class='fa fa-play-circle'/>
-      <text class='voice-length'>{{ item.voice }}</text>
-    </view>
+    </voice-block>
   </view>
 
   <view class='back-btn'>回到首页</view>
