@@ -2,7 +2,17 @@
 <view class="container">  
   <movie-card movie="{{movie}}">
     <view class="card-content">
-      <text class='description'>{{ movie.description }}</text>
+      
+      <person-info name="{{ review.name }}" 
+                   imageUrl="{{ review.imageUrl }}">
+      </person-info>
+      <view class="voice-desc" wx:if="{{ review.dataType=='语音' }}">
+        <text class="placeholder">“</text>
+        <voice-block voice="{{ review.voice }}">
+          <text class='fa fa-play-circle'/>
+        </voice-block>
+      </view>
+      <text wx:if="{{review.dataType=='文字'}}" class='description'>{{ review.text }}</text>
       <view class="buttons">
         <view class='view-button'>
             <text class='fa fa-star'/>  <text>收藏影评</text>

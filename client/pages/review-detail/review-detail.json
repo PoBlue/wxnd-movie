@@ -1,6 +1,8 @@
 {
   "navigationBarTitleText": "影评详情",
   "usingComponents": {
-      "movie-card": "/components/movie-card/movie-card"
+      "movie-card": "/components/movie-card/movie-card",
+      "person-info": "/components/person-info/person-info",
+      "voice-block": "/components/voice-block/voice-block"
   }
 }

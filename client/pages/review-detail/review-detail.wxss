@@ -13,10 +13,40 @@ page {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  margin: 20px 20px 0px 20px;
 }
    
 movie-card {
   height: 100%;
+  width: 100%;
+}
+
+.voice-desc {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  margin: 20px;
+}
+
+.placeholder {
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+
+person-info {
+  align-self: flex-start;
+}
+
+.fa {
+  font-size: 1rem;
+  margin-right: 4px;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 .description {
@@ -25,6 +55,7 @@ movie-card {
   overflow:hidden;
   flex: 1;
   margin-top: 20px;
+  margin: 20px;
 }
 
 .buttons {
@@ -45,8 +76,4 @@ movie-card {
   padding-left: 16px;
   border-radius: 8px;
   text-align: center;
-}
-
-.fa {
-  font-size: 1rem;
 }
