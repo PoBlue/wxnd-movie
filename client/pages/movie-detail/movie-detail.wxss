@@ -48,4 +48,7 @@ movie-card {
 
 .fa {
   font-size: 1rem;
+  margin-right: 4px;
+  vertical-align: middle;
+  line-height: normal;
 }
