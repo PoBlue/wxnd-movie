@@ -1,0 +1,16 @@
+<!--pages/review-detail.wxml-->
+<view class="container">  
+  <movie-card movie="{{movie}}">
+    <view class="card-content">
+      <text class='description'>{{ movie.description }}</text>
+      <view class="buttons">
+        <view class='view-button'>
+            <text class='fa fa-star'/>  <text>收藏影评</text>
+        </view>
+        <view class='add-button'>
+            <text class='fa fa-pencil'/>  <text>写影评</text>
+        </view>
+      </view>
+    </view>
+  </movie-card>
+</view>

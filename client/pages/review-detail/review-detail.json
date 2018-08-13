@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "影评详情",
+  "usingComponents": {
+      "movie-card": "/components/movie-card/movie-card"
+  }
+}
