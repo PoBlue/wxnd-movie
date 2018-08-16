@@ -1,0 +1,19 @@
+<!--components/review-card/review-card.wxml-->
+  <movie-card movie="{{movie}}">
+    <view class="card-content">
+      
+      <person-info name="{{ review.name }}" 
+                   imageUrl="{{ review.imageUrl }}">
+      </person-info>
+
+      <view class="review">
+        <text class="placeholder">“</text>
+        <text wx:if="{{review.dataType=='文字'}}" class='description'>{{ review.text }}</text>
+        <voice-block  wx:if="{{ review.dataType=='语音' }}" voice="{{ review.voice }}">
+          <text class='fa fa-play-circle'/>
+        </voice-block>
+      </view>
+
+      <slot></slot>
+    </view>
+  </movie-card>

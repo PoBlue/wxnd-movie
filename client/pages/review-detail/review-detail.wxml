@@ -1,26 +1,15 @@
-<!--pages/review-detail.wxml-->
-<view class="container">  
-  <movie-card movie="{{movie}}">
-    <view class="card-content">
-      
-      <person-info name="{{ review.name }}" 
-                   imageUrl="{{ review.imageUrl }}">
-      </person-info>
-      <view class="voice-desc" wx:if="{{ review.dataType=='语音' }}">
-        <text class="placeholder">“</text>
-        <voice-block voice="{{ review.voice }}">
-          <text class='fa fa-play-circle'/>
-        </voice-block>
+<!-- pages/review-detail.wxml -->
+<view class="container">
+  <review-card review="{{ review }}" movie="{{ movie }}">
+    <view class="buttons">
+      <view class='view-button'>
+        <text class='fa fa-star' />
+        <text>收藏影评</text>
       </view>
-      <text wx:if="{{review.dataType=='文字'}}" class='description'>{{ review.text }}</text>
-      <view class="buttons">
-        <view class='view-button'>
-            <text class='fa fa-star'/>  <text>收藏影评</text>
-        </view>
-        <view class='add-button'>
-            <text class='fa fa-pencil'/>  <text>写影评</text>
-        </view>
+      <view class='add-button'>
+        <text class='fa fa-pencil' />
+        <text>写影评</text>
       </view>
     </view>
-  </movie-card>
+  </review-card>
 </view>
