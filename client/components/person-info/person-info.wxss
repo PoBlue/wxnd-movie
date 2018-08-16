@@ -1,8 +1,8 @@
 /* components/person-info/person-info.wxss */
 .movie-image {
   border-radius: 25px;
-  height: 45px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
   margin-right: 13px;
 }
 
@@ -14,7 +14,7 @@
 
 .name {
   display: block;
-  height: 45px;
-  line-height: 45px;
+  height: 40px;
+  line-height: 40px;
   text-align: center;
 }

@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/main-page/main-page",
+    "pages/review-mine/review-mine",
     "pages/movie-hot-list/movie-hot-list",
+    "pages/main-page/main-page",
     "pages/review-preview/review-preview",
     "pages/review-detail/review-detail",
     "pages/review-edit/review-edit",
