@@ -13,5 +13,5 @@
       </view>
     </view>
   </movie-card>
-  <view class='back-btn'>回到首页</view>
+  <view class='back-btn'>完成</view>
 </view>
