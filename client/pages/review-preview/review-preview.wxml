@@ -1,0 +1,15 @@
+<!--pages/review-preview/review-preview.wxml-->
+<view class="container">
+  <review-card review="{{ review }}" movie="{{ movie }}">
+    <view class="buttons">
+      <view class='view-button'>
+        <text class='fa fa-undo' />
+        <text>重新编辑</text>
+      </view>
+      <view class='add-button'>
+        <text class='fa fa-paper-plane' />
+        <text>发布影评</text>
+      </view>
+    </view>
+  </review-card>
+</view>
