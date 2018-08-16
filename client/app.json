@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/movie-hot-list/movie-hot-list",
     "pages/review-preview/review-preview",
     "pages/review-detail/review-detail",
     "pages/review-edit/review-edit",
     "pages/movie-detail/movie-detail",
-    "pages/index/index",
     "pages/review-list/review-list"
   ],
   "window": {
