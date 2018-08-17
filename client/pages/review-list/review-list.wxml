@@ -1,8 +1,7 @@
 <!--pages/review-list.wxml-->
 <view class="container">
   <view class='placeholder'></view>
-  <view class="list-item" wx:for="{{ reviewList }}" wx:key="{{ movieId }}">
-
+  <view bindtap="listClick" data-index="{{ index }}" class="list-item" wx:for="{{ reviewList }}" wx:key="{{ movieId }}">
     <person-info name="{{ item.name }}" imageUrl="{{ item.imageUrl }}"></person-info>
 
     <view class='review' wx:if="{{ item.dataType == '文字'}}"> 
@@ -14,6 +13,6 @@
     </voice-block>
   </view>
 
-  <view class='back-btn'>回到首页</view>
+  <view class='back-btn' bindtap="backHomeClick">回到首页</view>
 </view>
 

@@ -2,12 +2,12 @@
 <view class="container">
   <review-card review="{{ review }}" movie="{{ movie }}">
     <view class="buttons">
-      <view class='view-button'>
+      <view class='view-button' bindtap="reEditBtnClick">
         <text class='fa fa-undo' />
         <text>重新编辑</text>
       </view>
-      <view class='add-button'>
-        <text class='fa fa-paper-plane' />
+      <view class='add-button' bindtap="sendReviewBtnClick">
+        <text class='fa fa-paper-plane'/>
         <text>发布影评</text>
       </view>
     </view>

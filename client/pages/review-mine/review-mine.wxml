@@ -6,7 +6,7 @@
   </view>
 
   <block wx:for="{{ favourList }}" wx:key="{{ item.movie.id }}">
-    <navigator class="list-item" url="">
+    <navigator class="list-item" url="../review-detail/review-detail">
       <view class="info">      
         <view class='title'>{{ item.movie.title }}</view>
 
@@ -23,5 +23,5 @@
     </navigator>
   </block>
 
-  <view class='back-btn'>回到首页</view>
+  <view class='back-btn' bindtap="backHomeClick">回到首页</view>
 </view>
