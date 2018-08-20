@@ -51,8 +51,10 @@ Page({
   },
 
   onLoad: function(options) {
-    this.checkSession({
+    //检查之前是否授权登陆过
+    getApp().checkSession({
       success: ({userInfo})=> {
+        console.log(userInfo)
         this.setData({
           userInfo: userInfo
         })
@@ -61,64 +63,14 @@ Page({
     })
   },
 
-  checkSession({ success, error }) {
-    wx.checkSession({
-      success: () => {
-        this.getUserInfo({ success, error })
-      },
-      fail: () => {
-        error && error()
-      }
-    })
-  },
-
   onTapLogin: function(e) {
     qcloud.setLoginUrl(config.service.loginUrl)
 
-    this.doQcloudLogin({
+    getApp().doQcloudLogin({
       success: ({userInfo}) => {
         this.setData({
           userInfo
         })
-      }
-    })
-  },
-
-  doQcloudLogin({ success, error }) {
-    qcloud.login({
-      success: result => {
-        if (result) {
-          let userInfo= result
-          success && success({
-            userInfo
-          })
-        }
-      },
-      fail: result => {
-        this.getUserInfo({success, error})
-      }
-    })
-  },
-
-  getUserInfo({ success, error }) {
-    qcloud.request({
-      url: config.service.requestUrl,
-      login:true,
-      success: result => {
-        let data = result.data
-
-        if (!data.code) {
-          let userInfo= data.data
-
-          success && success({
-            userInfo
-          })
-        } else {
-          error && error()
-        }
-      }, 
-      fail: () => {
-        error && error()
       }
     })
   },
