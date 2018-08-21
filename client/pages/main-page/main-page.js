@@ -28,6 +28,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    //获取影评数据
     const movieId = 1;
     qcloud.request({
       url: config.service.reviewsUrl+ movieId,
