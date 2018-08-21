@@ -13,6 +13,7 @@ Page({
     userInfo: null,
     recorderManager: null,
     recordeOptions: null,
+    temFilePath: '',
     movie: {
       "id": 1,
       "title": "复仇者联盟3：无限战争",
@@ -60,7 +61,8 @@ Page({
       const {temFilePath} = res
       this.setData({
         isFinished: true,
-        recording: false
+        recording: false,
+        temFilePath
       })
     })
   },
@@ -89,6 +91,10 @@ Page({
   },
 
   finBtnClick: function (e) {
+    const _this = this
+    let pageUrl = '../review-preview/review-preview'
+    pageUrl += `?voice_url=${_this.data.temFilePath}`
+
     wx.navigateTo({
       url: '../review-preview/review-preview'
     })

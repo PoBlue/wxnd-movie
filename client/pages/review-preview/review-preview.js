@@ -32,7 +32,7 @@ Page({
       movieId: 1,
       imageUrl: "https://poster-1257004793.cos.ap-guangzhou.myqcloud.com/p2517753454.jpg",
       name: "名字1",
-      dataType: "文字",
+      dataType: "语音",
       text: "一些文字,一些文字一些文字一些文字一些文字",
       voice: "15s"
     }
@@ -76,8 +76,11 @@ Page({
         }, _this.requestCallback);
       }
     })
-  }
+  },
 
+  onTapVoice: function(e) {
+    console.log("play voice")
+  }
 
   // sendReviewBtnClick: function (e) {
   //   wx.navigateTo({
