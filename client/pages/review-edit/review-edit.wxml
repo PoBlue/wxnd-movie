@@ -13,9 +13,9 @@
           <view class="buttons">
             <view wx:if="{{!recording}}" class='view-button' bindtap="onTapRecord">
               <text class='fa fa-microphone' />
-              <text>录音</text>
+              <text>{{!isFinished?'录音':'重新录音'}}</text>
             </view>
-            <view wx:if="{{recording}}" class="stop-record">
+            <view wx:if="{{recording}}" class="stop-record" bindtap="onTapStop">
                 <text>停止录音</text>
             </view>
           </view>

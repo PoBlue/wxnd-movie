@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isFinished: false,
     recording: false,
     userInfo: null,
     recorderManager: null,
@@ -53,12 +54,26 @@ Page({
         recording: true
       })
     })
+
+    recorderManager.onStop((res) => {
+      console.log('recorder finished')
+      const {temFilePath} = res
+      this.setData({
+        isFinished: true,
+        recording: false
+      })
+    })
   },
 
 
   onTapRecord: function (e) {
     const _this = this
     _this.data.recorderManager.start(_this.data.recordeOptions)
+  },
+
+  onTapStop: function(e) {
+    const _this = this
+    _this.data.recorderManager.stop()
   },
 
   onTapLogin: function (e) {
