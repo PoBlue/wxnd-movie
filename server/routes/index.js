@@ -35,4 +35,7 @@ router.post('/message', controllers.message.post)
 // GET 用来响应 URL： /movies 
 router.get('/movies', controllers.movies.list)
 
+// GET 用来响应 URL：/reviews?movie_id=movie_id
+router.get('/reviews', controllers.reviews.list)
+
 module.exports = router

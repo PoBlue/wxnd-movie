@@ -1,4 +1,7 @@
 // pages/main-page/main-page.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+const config = require('../../config.js')
+
 Page({
 
   /**
@@ -25,7 +28,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    const movieId = 1;
+    qcloud.request({
+      url: config.service.reviewsUrl+ movieId,
+      success: result => {
+        console.log(result)
+      },
+      fail: result => {
+        console.log(result)
+      }
+    })
   },
 
   posterClick: function(e) {
