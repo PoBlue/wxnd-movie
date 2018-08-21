@@ -1,17 +1,23 @@
 <!-- pages/review-edit/review-edit.wxml -->
 <view class="container">
-  <movie-card movie="{{movie}}">
-    <view class="card-content">
-      <input class="input" maxlength="10" placeholder="最大输入长度10" />
-      <view class="record">
-        <view class="buttons">
-          <view class='view-button'>
-            <text class='fa fa-microphone' />
-            <text>录音</text>
+  <view class="auth-view" wx:if="{{ !userInfo }}">
+    <text class="auth-text">请先授权</text>
+    <button class="login-btn" open-type="getUserInfo" bindgetuserinfo="onTapLogin">微信登陆</button>
+  </view>
+  <block wx:else>
+    <movie-card movie="{{movie}}">
+      <view class="card-content">
+        <input class="input" maxlength="10" placeholder="最大输入长度10" />
+        <view class="record">
+          <view class="buttons">
+            <view class='view-button'>
+              <text class='fa fa-microphone' />
+              <text>录音</text>
+            </view>
           </view>
         </view>
       </view>
-    </view>
-  </movie-card>
-  <view class='back-btn' bindtap='finBtnClick'>完成</view>
+    </movie-card>
+    <view class='back-btn' bindtap='finBtnClick'>完成</view>
+  </block>
 </view>

@@ -14,11 +14,9 @@ App({
         success && success({
            userInfo: cacheUserInfo
         }) 
-        console.log('test')
         return
       }
 
-      console.log('test2')
       wx.checkSession({
         success: () => {
           this.getUserInfo({ success, error })

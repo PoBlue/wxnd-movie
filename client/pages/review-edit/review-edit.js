@@ -1,10 +1,14 @@
 // pages/review-edit/review-edit.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+const config = require('../../config.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    userInfo: null,
     movie: {
       "id": 1,
       "title": "复仇者联盟3：无限战争",
@@ -13,6 +17,31 @@ Page({
     }
   },
   
+  onLoad: function(options) {
+    //检查之前是否授权登陆过
+    getApp().checkSession({
+      success: ({userInfo})=> {
+        console.log(userInfo)
+        this.setData({
+          userInfo: userInfo
+        })
+      },
+      error: () => {}
+    })
+  },
+
+  onTapLogin: function(e) {
+    qcloud.setLoginUrl(config.service.loginUrl)
+
+    getApp().doQcloudLogin({
+      success: ({userInfo}) => {
+        this.setData({
+          userInfo
+        })
+      }
+    })
+  },
+
   finBtnClick: function(e) {
     wx.navigateTo({
       url: '../review-preview/review-preview'

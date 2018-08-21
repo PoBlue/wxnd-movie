@@ -60,3 +60,15 @@ movie-card {
   padding: 10px;
   text-align: center;
 }
+
+.auth-view {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-text,
+.login-btn {
+  margin: 20px;
+}
