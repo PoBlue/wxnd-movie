@@ -9,10 +9,14 @@
       <view class="card-content">
         <input class="input" maxlength="10" placeholder="最大输入长度10" />
         <view class="record">
+          <text wx:if="{{recording}}" class="recording">正在录音中...</text>
           <view class="buttons">
-            <view class='view-button'>
+            <view wx:if="{{!recording}}" class='view-button' bindtap="onTapRecord">
               <text class='fa fa-microphone' />
               <text>录音</text>
+            </view>
+            <view wx:if="{{recording}}" class="stop-record">
+                <text>停止录音</text>
             </view>
           </view>
         </view>

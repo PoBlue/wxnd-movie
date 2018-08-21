@@ -33,8 +33,13 @@ movie-card {
   margin: 20px;
 }
 
+.recording {
+  display: block;
+  margin: 20px;
+}
+
 .view-button, 
-.add-button {
+.stop-record {
   font-size: 0.8em;
   color: rgb(124, 151, 172);
   display: flex;

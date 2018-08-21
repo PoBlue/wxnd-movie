@@ -8,7 +8,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    recording: false,
     userInfo: null,
+    recorderManager: null,
+    recordeOptions: null,
     movie: {
       "id": 1,
       "title": "复仇者联盟3：无限战争",
@@ -16,25 +19,53 @@ Page({
       "create_time": "2018-06-27T07:05:21.000Z"
     }
   },
-  
-  onLoad: function(options) {
+
+  onLoad: function (options) {
     //检查之前是否授权登陆过
     getApp().checkSession({
-      success: ({userInfo})=> {
+      success: ({ userInfo }) => {
         console.log(userInfo)
         this.setData({
           userInfo: userInfo
         })
       },
-      error: () => {}
+      error: () => { }
+    })
+
+    const recorderManager = wx.getRecorderManager()
+    const recordeOptions = {
+      duration: 10000,
+      sampleRate: 44100,
+      numberOfChannels: 1,
+      encodeBitRate: 192000,
+      format: 'aac',
+      frameSize: 50
+    }
+
+    this.setData({
+      recorderManager,
+      recordeOptions
+    })
+
+    recorderManager.onStart(() => {
+      console.log('recorder start')
+      this.setData({
+        recording: true
+      })
     })
   },
 
-  onTapLogin: function(e) {
+
+  onTapRecord: function (e) {
+    const _this = this
+    _this.data.recorderManager.start(_this.data.recordeOptions)
+  },
+
+  onTapLogin: function (e) {
     qcloud.setLoginUrl(config.service.loginUrl)
 
     getApp().doQcloudLogin({
-      success: ({userInfo}) => {
+      success: ({ userInfo }) => {
         this.setData({
           userInfo
         })
@@ -42,7 +73,7 @@ Page({
     })
   },
 
-  finBtnClick: function(e) {
+  finBtnClick: function (e) {
     wx.navigateTo({
       url: '../review-preview/review-preview'
     })
