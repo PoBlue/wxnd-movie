@@ -59,5 +59,10 @@ const createReviewParam = (review) => {
   return paramUrl
 }
 
+const getFileName = (url) => {
+  var filename = url.substring(url.lastIndexOf('/')+1);
+  return filename
+}
+
 module.exports = { getLineNums, getReviewOpt, getMovieOpt,
-                   createMovieParam, createReviewParam }
+                   createMovieParam, createReviewParam, getFileName }
