@@ -32,11 +32,11 @@ Page({
       success: function(res) {
         if(res.tapIndex == 0) {
           wx.navigateTo({
-            url: '../review-edit/review-edit'
+            url: '../review-edit/review-edit?editType=文字'
           })
         } else if (res.tapIndex == 1) {
           wx.navigateTo({
-            url: '../review-edit/review-edit'
+            url: '../review-edit/review-edit?editType=音频'
           })
         }
       },
