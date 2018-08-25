@@ -1,6 +1,7 @@
 // pages/review-edit/review-edit.js
 const qcloud = require('../../vendor/wafer2-client-sdk/index')
 const config = require('../../config.js')
+const utils = require('../../utils/util.js')
 
 //录音设置
 const recorderManager = wx.getRecorderManager()
@@ -24,6 +25,7 @@ Page({
     recording: false,
     userInfo: null,
     tempFilePath: '',
+    inputText: '',
     movie: {
       "id": 1,
       "title": "复仇者联盟3：无限战争",
@@ -87,13 +89,29 @@ Page({
     })
   },
 
+  createReviewData: function() {
+    const _this = this
+    const review = {
+      movieId: _this.data.movie.id,
+      imageUrl: _this.data.userInfo.avatarUrl,
+      name: _this.data.userInfo.nickName,
+      dataType: _this.data.isEditText? '文字' : '语音',
+      text: _this.data.inputText,
+      voice: _this.data.tempFilePath,
+      userId: _this.data.userInfo.openId
+    }
+    return review
+  },
+
   finBtnClick: function (e) {
     const _this = this
-    let pageUrl = '../review-preview/review-preview'
-    pageUrl += `?voice_url=${_this.data.tempFilePath}`
+    let pageUrl = '../review-preview/review-preview?'
+    pageUrl += utils.createReviewParam(_this.createReviewData())
+    pageUrl += utils.createMovieParam(_this.data.movie)
+    console.log(pageUrl)
 
     wx.navigateTo({
-      url: '../review-preview/review-preview'
+      url: pageUrl
     })
   }
 })

@@ -2,5 +2,5 @@
 <view class='voice'> 
   <text class='fa fa-play-circle'/>
   <slot></slot>
-  <text class='voice-length'>{{ voice }}</text>
+  <text class='voice-length'>play</text>
 </view>
