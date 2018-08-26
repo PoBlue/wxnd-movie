@@ -1,6 +1,7 @@
 // pages/main-page/main-page.js
 const qcloud = require('../../vendor/wafer2-client-sdk/index')
-const config = require('../../config.js')
+const config = require('../../config')
+const utils = require('../../utils/util')
 
 Page({
 
@@ -50,7 +51,6 @@ Page({
     qcloud.request({
       url: config.service.movie + movieId,
       success: result => {
-        console.log(result)
         const movie = result.data.data[0]
         
         this.setData({
@@ -64,8 +64,13 @@ Page({
   },
 
   posterClick: function(e) {
+    const _this = this
+    const movie = _this.data.movie
+    let pageUrl = '../movie-detail/movie-detail?'
+    pageUrl += utils.createMovieParam(movie)
+
     wx.navigateTo({
-      url: '../movie-detail/movie-detail'
+      url: pageUrl
     })
   },
 
@@ -82,8 +87,13 @@ Page({
   },
 
   personClick: function(e) {
+    const _this = this
+    let pageUrl = '../review-detail/review-detail?'
+    pageUrl += utils.createReviewParam(_this.data.review)
+    pageUrl += utils.createMovieParam(_this.data.movie)
+
     wx.navigateTo({
-      url: '../review-detail/review-detail'
+      url: pageUrl
     })
   }
 })
