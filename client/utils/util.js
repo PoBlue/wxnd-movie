@@ -17,6 +17,7 @@ const movieKey = {
   id: "id",
   title: "title",
   image: "image",
+  description: "description",
   create_time: "create_time"
 }
 
@@ -38,6 +39,7 @@ const getMovieOpt = (options) => {
     id: options[movieKey.id],
     title: options[movieKey.title],
     image: options[movieKey.image],
+    description: options[movieKey.description],
     create_time: options[movieKey.create_time]
   }
   return movie

@@ -1,4 +1,8 @@
 // pages/review-detail.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+const config = require('../../config.js')
+const utils = require('../../utils/util.js');
+
 Page({
 
   /**
@@ -19,6 +23,18 @@ Page({
       text: "一些文字,一些文字一些文字一些文字一些文字",
       voice: "15s"
     }
+  },
+  onLoad: function(options) {
+    const movie = utils.getMovieOpt(options)
+    const review = utils.getReviewOpt(options)
+
+    console.log(movie)
+    console.log(review)
+    this.setData({
+      movie,
+      review
+    })
+
   },
   favourReview: function(e) {
     console.log('收藏')

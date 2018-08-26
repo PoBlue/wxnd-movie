@@ -1,6 +1,7 @@
 //index.js
 const qcloud = require('../../vendor/wafer2-client-sdk/index')
 const config = require('../../config')
+const utils = require('../../utils/util')
 
 
 Page({
@@ -21,6 +22,17 @@ Page({
       fail: result => {
         wx.showModal({ title: '返回错误', content: '请求失败', showCancel: false });
       }
+    })
+  },
+
+  listClick: function(e) {
+    const _this = this
+    const movie = _this.data.moviesList[e.currentTarget.dataset.index]
+    let pageUrl = '../movie-detail/movie-detail?'
+    pageUrl += utils.createMovieParam(movie)
+
+    wx.navigateTo({
+      url: pageUrl
     })
   }
 })

@@ -14,15 +14,18 @@ Page({
    */
   onLoad: function (options) {
     const movie = options;
-    console.log(movie)
     this.setData({
       movie
     })
   },
 
   viewBtnClick: function(e) {
+    const _this = this
+    let pageUrl = `../review-list/review-list?`
+    pageUrl += utils.createMovieParam(_this.data.movie)
+
     wx.navigateTo({
-      url: '../review-list/review-list'
+      url: pageUrl
     })
   }, 
 
