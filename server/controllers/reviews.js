@@ -12,5 +12,19 @@ module.exports = {
       return 
     }
     ctx.state.data = await DB.query(`SELECT * FROM reviews WHERE movie_id = ${movie_id};`)
+  },
+
+  add: async ctx => {
+    const body = ctx.request.body
+    let image_url = body.imageUrl
+    let name = body.name
+    let data_type = body.dataType
+    let text = body.text
+    let voice_url = body.voice
+    let movie_id = body.movieId
+    let user_id = body.userId
+
+    ctx.state.data = await DB.query(`INSERT INTO reviews(image_url, name, data_type, text, voice_url, movie_id, user_id) VALUES (?,?,?,?,?,?,?)`,
+                        [image_url, name, data_type, text, voice_url, movie_id, user_id])
   }
 }

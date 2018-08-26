@@ -25,6 +25,9 @@ var config = {
         
         //获取对应电影的影评：reviews?movie_id=''
         reviewsUrl: `${host}/weapp/reviews?movie_id=`,
+
+        //上传影评
+        addReviewsUrl: `${host}/weapp/reviews/add`,
     }
 };
 

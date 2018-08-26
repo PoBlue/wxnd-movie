@@ -38,4 +38,6 @@ router.get('/movies', controllers.movies.list)
 // GET 用来响应 URL：/reviews?movie_id=movie_id
 router.get('/reviews', controllers.reviews.list)
 
+router.post('/reviews/add', validationMiddleware, controllers.reviews.add)
+
 module.exports = router

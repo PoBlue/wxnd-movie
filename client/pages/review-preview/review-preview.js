@@ -1,7 +1,9 @@
 // pages/review-preview/review-preview.js
 //index.js
 var COS = require('../../lib/cos-wx-sdk-v5')
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
 var config = require('./config')
+const appConfig = require('../../config')
 const utils = require('../../utils/util')
 
 var cos = new COS({
@@ -28,7 +30,7 @@ Page({
   },
 
 
-  onLoad: function(options) {
+  onLoad: function (options) {
     const movie = utils.getMovieOpt(options)
     const review = utils.getReviewOpt(options)
 
@@ -51,13 +53,14 @@ Page({
   },
 
   requestCallback: function (err, data) {
+    const _this = this
     console.log(err || data);
     if (err && err.error) {
       wx.showModal({ title: '返回错误', content: '请求失败：' + err.error.Message + '；状态码：' + err.statusCode, showCancel: false });
     } else if (err) {
       wx.showModal({ title: '请求出错', content: '请求出错：' + err + '；状态码：' + err.statusCode, showCancel: false });
     } else {
-      wx.showToast({ title: '请求成功', icon: 'success', duration: 3000 });
+      _this.uploadReview(_this.data.review)
     }
   },
 
@@ -79,7 +82,22 @@ Page({
     }, _this.requestCallback);
   },
 
-  onTapVoice: function(e) {
+  uploadReview: (review) => {
+    qcloud.request({
+      url: appConfig.service.addReviewsUrl,
+      method: 'POST',
+      data: review,
+      success: result => {
+        wx.showToast({ title: '上传评论成功', icon: 'success', duration: 3000 });
+        console.log(result)
+      },
+      fail: result => {
+        console.log(result)
+      }
+    })
+  },
+
+  onTapVoice: function (e) {
     const _this = this
     //播放音乐
     this.innerAudioCTX.src = _this.data.review.voice

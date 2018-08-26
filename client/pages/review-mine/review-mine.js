@@ -71,6 +71,7 @@ Page({
         this.setData({
           userInfo
         })
+        console.log(userInfo)
       }
     })
   },
