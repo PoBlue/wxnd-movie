@@ -30,7 +30,13 @@ var config = {
         addReviewsUrl: `${host}/weapp/reviews/add`,
 
         //热门电影
-        hotMoviesUrl: `${host}/weapp/movies`
+        hotMoviesUrl: `${host}/weapp/movies`,
+
+        //所有影评
+        allReviewsUrl: `${host}/weapp/reviews/all`,
+
+        //取一部电影
+        movie: `${host}/weapp/movie?movie_id=`
     }
 };
 

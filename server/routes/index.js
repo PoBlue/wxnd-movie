@@ -35,8 +35,14 @@ router.post('/message', controllers.message.post)
 // GET 用来响应 URL： /movies 
 router.get('/movies', controllers.movies.list)
 
+// GET 用来响应 URL：/movie?movie_id=movie_id
+router.get('/movie', controllers.movies.movie)
+
 // GET 用来响应 URL：/reviews?movie_id=movie_id
 router.get('/reviews', controllers.reviews.list)
+
+// GET 用来响应 URL: /reviews/all
+router.get('/reviews/all', controllers.reviews.all)
 
 router.post('/reviews/add', validationMiddleware, controllers.reviews.add)
 

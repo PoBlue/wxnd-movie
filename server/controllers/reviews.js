@@ -14,6 +14,10 @@ module.exports = {
     ctx.state.data = await DB.query(`SELECT * FROM reviews WHERE movieId = ${movie_id};`)
   },
 
+  all: async ctx => {
+    ctx.state.data = await DB.query(`SELECT * FROM reviews;`)
+  },
+
   add: async ctx => {
     const body = ctx.request.body
     let image_url = body.imageUrl
