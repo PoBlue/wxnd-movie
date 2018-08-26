@@ -31,24 +31,19 @@ Page({
 
   addBtnClick: function(e) {
     const _this = this
+    let pageUrl = `../review-edit/review-edit?`
+    pageUrl += utils.createMovieParam(_this.data.movie)
 
     wx.showActionSheet({
       itemList: ['文字', '音频'],
       success: function(res) {
-        let pageUrl = `../review-edit/review-edit?`
-        pageUrl += utils.createMovieParam(_this.data.movie)
-
         if(res.tapIndex == 0) {
-          pageUrl += 'editType=文字'
-
           wx.navigateTo({
-            url: pageUrl
+            url: pageUrl + 'editType=文字'
           })
         } else if (res.tapIndex == 1) {
-          pageUrl += 'editType=语音'
-
           wx.navigateTo({
-            url: pageUrl
+            url: pageUrl + 'editType=语音'
           })
         }
       },
