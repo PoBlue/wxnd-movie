@@ -24,36 +24,39 @@ Page({
       voice: "15s"
     }
   },
-  onLoad: function(options) {
+  onLoad: function (options) {
     const movie = utils.getMovieOpt(options)
     const review = utils.getReviewOpt(options)
 
-    console.log(movie)
-    console.log(review)
     this.setData({
       movie,
       review
     })
 
   },
-  favourReview: function(e) {
+  favourReview: function (e) {
     console.log('收藏')
   },
-  writeReview: function(e) {
+
+  writeReview: function (e) {
+    const _this = this
+    let pageUrl = `../review-edit/review-edit?`
+    pageUrl += utils.createMovieParam(_this.data.movie)
+
     wx.showActionSheet({
       itemList: ['文字', '音频'],
-      success: function(res) {
+      success: function (res) {
         if (res.tapIndex == 0) {
           wx.navigateTo({
-            url: '../review-edit/review-edit?editType=文字'
+            url: pageUrl + 'editType=文字'
           })
         } else if (res.tapIndex == 1) {
           wx.navigateTo({
-            url: '../review-edit/review-edit?editType=音频'
+            url: pageUrl + 'editType=语音'
           })
         }
       },
-      fail: function(res) {
+      fail: function (res) {
         console.log(res.errMsg)
       }
     })

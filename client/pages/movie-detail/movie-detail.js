@@ -30,16 +30,25 @@ Page({
   }, 
 
   addBtnClick: function(e) {
+    const _this = this
+
     wx.showActionSheet({
       itemList: ['文字', '音频'],
       success: function(res) {
+        let pageUrl = `../review-edit/review-edit?`
+        pageUrl += utils.createMovieParam(_this.data.movie)
+
         if(res.tapIndex == 0) {
+          pageUrl += 'editType=文字'
+
           wx.navigateTo({
-            url: '../review-edit/review-edit?editType=文字'
+            url: pageUrl
           })
         } else if (res.tapIndex == 1) {
+          pageUrl += 'editType=语音'
+
           wx.navigateTo({
-            url: '../review-edit/review-edit?editType=音频'
+            url: pageUrl
           })
         }
       },
