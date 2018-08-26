@@ -28,6 +28,9 @@ var config = {
 
         //上传影评
         addReviewsUrl: `${host}/weapp/reviews/add`,
+
+        //热门电影
+        hotMoviesUrl: `${host}/weapp/movies`
     }
 };
 
