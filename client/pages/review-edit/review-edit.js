@@ -40,7 +40,6 @@ Page({
     //检查之前是否授权登陆过
     getApp().checkSession({
       success: ({ userInfo }) => {
-        console.log(userInfo)
         this.setData({
           userInfo: userInfo
         })
@@ -66,6 +65,11 @@ Page({
     })
   },
 
+  onInput: function(e) {
+    this.setData({
+      inputText: e.detail.value.trim()
+    })
+  },
 
   onTapRecord: function (e) {
     recorderManager.start(recordeOptions)
