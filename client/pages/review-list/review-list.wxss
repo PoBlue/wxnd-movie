@@ -3,6 +3,11 @@ page {
   background-color: rgb(247, 249, 251);
 }
 
+.list {
+  margin-bottom: 70px;
+  width: 100%;
+}
+
 .back-btn {
   background-color: white;
   border-top: 1px solid rgb(207, 207, 207);
