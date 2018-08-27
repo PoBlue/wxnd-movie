@@ -67,8 +67,17 @@ Page({
   sendReviewBtnClick: function () {
     const _this = this;
 
+    if(_this.data.review.dataType == '语音') {
+      uploadVoice()
+    } else {
+      _this.uploadReview(_this.data.review)
+    }
+  },
+
+  uploadVoice: function() {
+    const _this = this;
+
     var filePath = _this.data.review.voice
-    console.log(filePath)
     var Key = utils.getFileName(filePath) // 这里指定上传的文件名
 
     cos.postObject({
@@ -82,14 +91,22 @@ Page({
     }, _this.requestCallback);
   },
 
-  uploadReview: (review) => {
+  uploadReview: function(review) {
+    const _this = this
+
     qcloud.request({
       url: appConfig.service.addReviewsUrl,
       method: 'POST',
       data: review,
       success: result => {
         wx.showToast({ title: '上传评论成功', icon: 'success', duration: 3000 });
-        console.log(result)
+
+        let pageUrl = `../review-list/review-list?`
+        pageUrl += utils.createMovieParam(_this.data.movie)
+
+        wx.navigateTo({
+          url: pageUrl
+        })
       },
       fail: result => {
         console.log(result)
@@ -102,13 +119,8 @@ Page({
     //播放音乐
     this.innerAudioCTX.src = _this.data.review.voice
     this.innerAudioCTX.play()
-
-    console.log('tap')
   }
 
   // sendReviewBtnClick: function (e) {
-  //   wx.navigateTo({
-  //     url: '../review-list/review-list'
-  //   })
   // }
 })
