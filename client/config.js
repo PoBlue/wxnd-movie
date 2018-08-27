@@ -36,7 +36,10 @@ var config = {
         allReviewsUrl: `${host}/weapp/reviews/all`,
 
         //取一部电影
-        movie: `${host}/weapp/movie?movie_id=`
+        movie: `${host}/weapp/movie?movie_id=`,
+
+        //收藏一条评论
+        favourReviewUrl: `${host}/weapp/reviews/favour?review_id=`
     }
 };
 
