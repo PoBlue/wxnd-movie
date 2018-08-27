@@ -105,8 +105,25 @@ Page({
     return review
   },
 
+  isDataEmpty() {
+    const _this = this;
+    if(!_this.data.isEditText && _this.data.tempFilePath!='') {
+      return false
+    } else if (_this.data.isEditText && _this.data.inputText!='') {
+      return false
+    } else {
+      return true
+    }
+  },
+
   finBtnClick: function (e) {
     const _this = this
+
+    if (_this.isDataEmpty()) {
+      wx.showToast({ title: '请先记录评论', icon: 'none',  duration: 2000 });
+      return
+    }
+
     let pageUrl = '../review-preview/review-preview?'
     pageUrl += utils.createReviewParam(_this.createReviewData())
     pageUrl += utils.createMovieParam(_this.data.movie)
