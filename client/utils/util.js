@@ -11,7 +11,8 @@ const reviewKey = {
   dataType: "dataType",
   text: "text",
   voiceUrl: "voiceUrl",
-  userId: "userId"
+  userId: "userId",
+  duration: "duration"
 }
 
 const movieKey = {
@@ -31,7 +32,8 @@ const getReviewOpt = (options) => {
     dataType: options[reviewKey.dataType],
     text: options[reviewKey.text],
     voiceUrl: options[reviewKey.voiceUrl],
-    userId: options[reviewKey.userId]
+    userId: options[reviewKey.userId],
+    duration: options[reviewKey.duration]
   }
   return review
 }

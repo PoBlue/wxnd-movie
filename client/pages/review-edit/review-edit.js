@@ -26,6 +26,7 @@ Page({
     userInfo: null,
     tempFilePath: '',
     inputText: '',
+    duration: '',
     movie: {}
   },
 
@@ -57,10 +58,13 @@ Page({
     recorderManager.onStop((res) => {
       console.log('recorder finished')
       const { tempFilePath } = res
+      let duration = Math.round(res.duration/1000)
+
       this.setData({
         isFinished: true,
         recording: false,
-        tempFilePath
+        tempFilePath,
+        duration
       })
     })
   },
@@ -100,7 +104,8 @@ Page({
       dataType: _this.data.isEditText? '文字' : '语音',
       text: _this.data.inputText,
       voiceUrl: _this.data.tempFilePath,
-      userId: _this.data.userInfo.openId
+      userId: _this.data.userInfo.openId,
+      duration: _this.data.duration
     }
     return review
   },

@@ -26,11 +26,12 @@ module.exports = {
     let text = body.text
     let voice_url = body.voiceUrl
     let movie_id = body.movieId
+    let duration = body.duration
     // let user_id = body.userId
     let user_id = ctx.state.$wxInfo.userinfo.openId
 
-    ctx.state.data = await DB.query(`INSERT INTO reviews(imageUrl, name, dataType, text, voiceUrl, movieId, user_id) VALUES (?,?,?,?,?,?,?)`,
-                        [image_url, name, data_type, text, voice_url, movie_id, user_id])
+    ctx.state.data = await DB.query(`INSERT INTO reviews(imageUrl, name, dataType, text, voiceUrl, movieId, user_id, duration) VALUES (?,?,?,?,?,?,?,?)`,
+                        [image_url, name, data_type, text, voice_url, movie_id, user_id, duration])
   },
 
   favour: async ctx => {
