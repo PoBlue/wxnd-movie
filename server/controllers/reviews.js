@@ -39,5 +39,29 @@ module.exports = {
     let user_id = ctx.state.$wxInfo.userinfo.openId
 
     ctx.state.data = await DB.query(`INSERT INTO collected_reviews(review_id, user_id) VALUES (?, ?)`, [review_id, user_id] )
+  },
+
+  allFavour: async ctx => {
+    let user_id = ctx.state.$wxInfo.userinfo.openId
+    const collectedReviews = await DB.query(`SELECT * FROM collected_reviews WHERE user_id = '${user_id}'`)
+
+    let reviews = []
+    for (const item of collectedReviews) {
+      const review = await DB.query(`SELECT * FROM reviews WHERE review_id = ${item.review_id};`)
+      reviews.push(review[0])
+    }
+
+    const result = []
+    for (const review of reviews) {
+      const movies = await DB.query(`SELECT * FROM movies WHERE id = ${review.movieId};`)
+      const movie = movies[0]
+      result.push({
+        review,
+        movie
+      })
+    }
+
+    ctx.state.data = result
+
   }
 }

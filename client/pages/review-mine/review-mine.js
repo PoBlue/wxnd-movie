@@ -51,15 +51,34 @@ Page({
   },
 
   onLoad: function(options) {
+    const _this = this
+
     //检查之前是否授权登陆过
     getApp().checkSession({
       success: ({userInfo})=> {
-        console.log(userInfo)
         this.setData({
           userInfo: userInfo
         })
+
+        _this.getAllFavour()
       },
       error: () => {}
+    })
+  },
+
+  getAllFavour: function() {
+    const _this = this
+
+    qcloud.request({
+      url: config.service.allFavourUrl,
+      success: result => {
+        this.setData({
+          favourList: result.data.data
+        })
+      },
+      fail: result => {
+        wx.showModal({ title: '返回错误', content: '请求失败', showCancel: false });
+      }
     })
   },
 

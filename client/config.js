@@ -39,7 +39,10 @@ var config = {
         movie: `${host}/weapp/movie?movie_id=`,
 
         //收藏一条评论
-        favourReviewUrl: `${host}/weapp/reviews/favour?review_id=`
+        favourReviewUrl: `${host}/weapp/reviews/favour?review_id=`,
+
+        //取出所有评论
+        allFavourUrl: `${host}/weapp//reviews/allFavour`
     }
 };
 

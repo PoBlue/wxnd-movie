@@ -49,4 +49,6 @@ router.post('/reviews/add', validationMiddleware, controllers.reviews.add)
 // 用来响应 URL ： /reviews/favour?review_id=review_id
 router.get('/reviews/favour', validationMiddleware, controllers.reviews.favour)
 
+router.get('/reviews/allFavour', validationMiddleware, controllers.reviews.allFavour)
+
 module.exports = router
