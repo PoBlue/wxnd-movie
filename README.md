@@ -18,9 +18,6 @@ cd server && npm install
 - 语音 / 文字评论
 - 收藏影评
 
-<img alt="hot list" src="./readme_img/hot-list.png" width="300" />
-<img alt="main page" src="./readme_img/main-page.png" width="300" />
-<img alt="mine page" src="./readme_img/mine.png" width="300" />
-<img alt="movie detail" src="./readme_img/movie-detail.png" width="300" />
-<img alt="review detail" src="./readme_img/review-detail.png" width="300" />
-<img alt="review list" src="./readme_img/review-list.png" width="300" />
+<img alt="hot list" src="./readme_img/hot-list.png" width="300" /> <img alt="main page" src="./readme_img/main-page.png" width="300" />
+<img alt="mine page" src="./readme_img/mine.png" width="300" /> <img alt="movie detail" src="./readme_img/movie-detail.png" width="300" />
+<img alt="review detail" src="./readme_img/review-detail.png" width="300" /> <img alt="review list" src="./readme_img/review-list.png" width="300" />
