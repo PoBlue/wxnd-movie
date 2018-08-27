@@ -9,7 +9,7 @@
         <text> {{ item.text }} </text>
       </view>
 
-      <voice-block class='voice' voice="{{ item.voice }}" wx:if="{{ item.dataType == '语音' }}"> 
+      <voice-block class='voice' voice="{{ item.duration }}" wx:if="{{ item.dataType == '语音' }}"> 
         <text class='fa fa-play-circle'/>
       </voice-block>
     </view>

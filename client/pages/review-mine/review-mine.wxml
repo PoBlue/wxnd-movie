@@ -17,7 +17,7 @@
             <text wx:if="{{item.review.dataType=='文字'}}" class='description'>
               {{ item.review.text }}
             </text>
-            <voice-block wx:if="{{ item.review.dataType=='语音' }}" voice="{{ item.review.voice }}">
+            <voice-block wx:if="{{ item.review.dataType=='语音' }}" voice="{{ item.review.duration }}">
               <text class='fa fa-play-circle' />
             </voice-block>
             <person-info name="{{ item.review.name }}" imageUrl="{{ item.review.imageUrl }}"></person-info>
