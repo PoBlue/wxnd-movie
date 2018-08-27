@@ -50,5 +50,6 @@ router.post('/reviews/add', validationMiddleware, controllers.reviews.add)
 router.get('/reviews/favour', validationMiddleware, controllers.reviews.favour)
 
 router.get('/reviews/allFavour', validationMiddleware, controllers.reviews.allFavour)
+router.get('/reviews/mine', validationMiddleware, controllers.reviews.mine)
 
 module.exports = router

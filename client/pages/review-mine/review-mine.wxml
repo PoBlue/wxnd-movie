@@ -6,12 +6,12 @@
   </view>
   <block wx:else>
     <view class="list">
-      <view class='list-state'>
+      <view class='list-state' bindtap="switchList">
         <text decode="{{true}}" class="list-name">{{ listname }} &nbsp;</text>
         <text class="fa fa-angle-down"></text>
       </view>
       <block wx:for="{{ favourList }}" wx:key="{{ item.movie.id }}">
-        <navigator class="list-item" url="../review-detail/review-detail">
+        <view class="list-item" bindtap="listClick" data-index="{{ index }}">
           <view class="info">
             <view class='title'>{{ item.movie.title }}</view>
             <text wx:if="{{item.review.dataType=='文字'}}" class='description'>
@@ -23,7 +23,7 @@
             <person-info name="{{ item.review.name }}" imageUrl="{{ item.review.imageUrl }}"></person-info>
           </view>
           <image class='poster' mode='asceptFill' src="{{ item.movie.image }}"></image>
-        </navigator>
+        </view>
       </block>
     </view>
     <view class='back-btn' bindtap="backHomeClick">回到首页</view>
