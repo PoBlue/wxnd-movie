@@ -37,7 +37,8 @@ Page({
       url: config.service.allFavourUrl,
       success: result => {
         this.setData({
-          favourList: result.data.data
+          favourList: result.data.data,
+          listname: "收藏的影评"
         })
       },
       fail: result => {
