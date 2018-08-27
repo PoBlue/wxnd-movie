@@ -14,6 +14,9 @@ Page({
     userInfo: null
   },
   onLoad: function (options) {
+    //创建 ctx for 播放器
+    this.innerAudioCTX = wx.createInnerAudioContext()
+
     const movie = utils.getMovieOpt(options)
     const review = utils.getReviewOpt(options)
 
@@ -75,6 +78,16 @@ Page({
         console.log(res.errMsg)
       }
     })
+  },
+
+  onTapVoice: function() {
+    const _this = this
+    const url = config.service.mp3Host + _this.data.review.voiceUrl
+    console.log(url)
+
+    //播放音乐
+    this.innerAudioCTX.src = url
+    this.innerAudioCTX.play()
   }
 
 })

@@ -39,7 +39,7 @@ Page({
       review
     })
 
-    var filePath = this.data.review.voice
+    var filePath = this.data.review.voiceUrl
     console.log(filePath)
 
     //创建 ctx for 播放器
@@ -68,7 +68,7 @@ Page({
     const _this = this;
 
     if(_this.data.review.dataType == '语音') {
-      uploadVoice()
+      _this.uploadVoice()
     } else {
       _this.uploadReview(_this.data.review)
     }
@@ -77,7 +77,7 @@ Page({
   uploadVoice: function() {
     const _this = this;
 
-    var filePath = _this.data.review.voice
+    var filePath = _this.data.review.voiceUrl
     var Key = utils.getFileName(filePath) // 这里指定上传的文件名
 
     cos.postObject({
@@ -93,6 +93,9 @@ Page({
 
   uploadReview: function(review) {
     const _this = this
+
+    const uReview = review;
+    uReview.voiceUrl = utils.getFileName(review.voiceUrl)
 
     qcloud.request({
       url: appConfig.service.addReviewsUrl,
@@ -117,7 +120,7 @@ Page({
   onTapVoice: function (e) {
     const _this = this
     //播放音乐
-    this.innerAudioCTX.src = _this.data.review.voice
+    this.innerAudioCTX.src = _this.data.review.voiceUrl
     this.innerAudioCTX.play()
   }
 

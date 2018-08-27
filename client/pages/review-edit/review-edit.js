@@ -99,7 +99,7 @@ Page({
       name: _this.data.userInfo.nickName,
       dataType: _this.data.isEditText? '文字' : '语音',
       text: _this.data.inputText,
-      voice: _this.data.tempFilePath,
+      voiceUrl: _this.data.tempFilePath,
       userId: _this.data.userInfo.openId
     }
     return review

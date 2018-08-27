@@ -42,7 +42,10 @@ var config = {
         favourReviewUrl: `${host}/weapp/reviews/favour?review_id=`,
 
         //取出所有评论
-        allFavourUrl: `${host}/weapp//reviews/allFavour`
+        allFavourUrl: `${host}/weapp//reviews/allFavour`,
+
+        //音频 url
+        mp3Host: `https://voice-1257004793.cos.ap-guangzhou.myqcloud.com/`
     }
 };
 
